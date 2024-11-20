@@ -2,30 +2,19 @@
 
 import java.time.LocalDate;
 
-class Persona{
-    private String nombre;
-    private LocalDate fechaNacimiento;
-    private Genero genero;
 
-    enum Genero {
-        HOMBRE, MUJER, OTRO
-    }
-    
-    public Persona(){}
-    
-    @Override
-    public String toString(){
-        return super.toString();
-    }
-
-    
+enum Genero{
+    HOMBRE, MUJER, OTRO
 }
+record Persona(String nombre, LocalDate fechaNacimiento, Genero genero){}
 
 
 
 public class RecordExplained {
     
     public static void main(String[] args) {
-        
+        Persona persona = new Persona("Ruben", LocalDate.now(), Genero.HOMBRE);
+
+        System.out.println(persona.nombre());
     }
 }
